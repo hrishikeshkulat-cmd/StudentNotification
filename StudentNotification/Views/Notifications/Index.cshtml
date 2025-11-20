@@ -1,0 +1,32 @@
+﻿@model IEnumerable<StudentNotification.Models.Notification>
+
+@{
+    ViewData["Title"] = "Notifications";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create Notification</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>Student</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var n in Model)
+        {
+            <tr>
+                <td>@n.Message</td>
+                <td>@n.Student?.Name</td>
+                <td>@n.CreatedAt.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
